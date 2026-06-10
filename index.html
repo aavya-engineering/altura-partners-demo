@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Altura — Backing the Founders to Build Tomorrow's Frontiers</title>
+  <meta name="description" content="Our focus is in AI, robotics, space & defense with technical expertise and experience." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Boldonse', 'sans-serif'],
+            body: ['Helvetica', 'Arial', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cyan:    '#00D2FF',
+              teal:    '#00B4CC',
+              blue:    '#0A84C8',
+              navy:    '#050E1F',
+              dark:    '#070F20',
+              card:    '#0D1A30',
+              border:  '#1A2D4A',
+              muted:   '#4A6180',
+              text:    '#CBD5E1',
+            }
+          },
+          animation: {
+            'fade-up':    'fadeUp 0.6s ease forwards',
+            'fade-in':    'fadeIn 0.5s ease forwards',
+            'shimmer':    'shimmer 2.5s linear infinite',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-brand-dark text-brand-text font-body antialiased transition-colors duration-300 dark:bg-brand-dark dark:text-brand-text">
+
+  <header id="navbar" class="site-header fixed top-0 left-0 right-0 z-50 transition-all duration-300" role="banner">
+    <nav class="site-nav max-w-[1440px] mx-auto px-5 md:px-10 lg:px-14 h-[91px] flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:gap-4" aria-label="Main navigation">
+
+      <a href="#" class="site-logo" aria-label="Altura Partners home">
+        <img src="assets/logo.svg" alt="" class="site-logo-mark" width="52" height="41" aria-hidden="true" />
+        <span class="site-logo-wordmark" aria-hidden="true"></span>
+      </a>
+
+      <ul class="nav-links hidden md:flex items-center justify-center md:col-start-2" role="list">
+        <li><a href="#thesis" class="nav-link">Thesis</a></li>
+        <li><a href="#portfolio" class="nav-link">Investment</a></li>
+        <li><a href="#team" class="nav-link">Strategy</a></li>
+        <li><a href="#focus" class="nav-link">Focus</a></li>
+      </ul>
+
+      <div class="site-nav-actions flex items-center gap-3 md:justify-self-end md:col-start-3">
+        <a href="#contact" class="btn-cta site-nav-cta">Partner With Us</a>
+
+        <button id="theme-toggle" aria-label="Switch to light mode" class="theme-toggle flex items-center justify-center">
+          <img id="theme-icon-light" src="assets/light_theme.svg" alt="" class="theme-toggle-icon" width="34" height="34" aria-hidden="true" />
+          <img id="theme-icon-dark" src="assets/dark_theme.svg" alt="" class="theme-toggle-icon hidden" width="34" height="34" aria-hidden="true" />
+        </button>
+
+        <button id="menu-toggle" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5">
+          <span class="hamburger-line w-5 h-px"></span>
+          <span class="hamburger-line w-5 h-px"></span>
+          <span class="hamburger-line w-5 h-px"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="#team" class="mobile-nav-link">Team</a>
+    <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
+    <a href="#team" class="mobile-nav-link">Strategy</a>
+    <a href="#focus" class="mobile-nav-link">Focus</a>
+    <a href="#contact" class="mobile-nav-link">Partner With Us</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero-section relative flex items-center overflow-hidden" aria-labelledby="hero-heading">
+      <div class="hero-banner-wrap pointer-events-none" aria-hidden="true"></div>
+
+      <div class="relative z-10 max-w-[1440px] mx-auto px-5 md:px-10 lg:px-14 w-full h-full flex items-center">
+        <div class="hero-copy reveal">
+          <h1 id="hero-heading" class="hero-heading">
+            <span class="hero-heading-line">Backing the <span class="text-gradient-accent">Founders</span></span>
+            <span class="hero-heading-line">to Build Tomorrow's Frontiers</span>
+          </h1>
+          <p class="text-white/75 text-sm md:text-base leading-relaxed mb-10 max-w-[440px] font-light">
+            Early stage fund backing AI, semis, space &amp; defense with hands-on operational experiences.
+          </p>
+          <a href="#thesis" class="btn-cta inline-flex">Read Our Thesis</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Investment thesis -->
+    <section id="thesis" class="py-24 md:py-32 relative" aria-labelledby="thesis-heading">
+      <div class="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-14">
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+
+          <div class="reveal strategy-intro">
+            <p class="section-eyebrow mb-4">Investment Thesis</p>
+            <h2 id="thesis-heading" class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Three pillars.<br/>
+              <span class="text-gradient-accent">One edge.</span>
+            </h2>
+            <p class="strategy-desc text-brand-text text-sm md:text-base leading-relaxed max-w-xl">
+              Deep expertise, strong networks, and hands-on support outperform broad strategies.
+            </p>
+          </div>
+
+          <div class="pillar-list reveal delay-100">
+            <div class="pillar-item">
+              <span class="advantage-marker" aria-hidden="true"></span>
+              <h3 class="advantage-title text-white font-semibold text-sm mb-1">Deep Technology Sourcing</h3>
+              <p class="text-brand-text text-sm leading-relaxed">MIT, Stanford, CMU, Caltech, Sandia, Berkeley, and NREL before research becomes a company. First-call advantage at formation stage is our playbook. We help founders productize and commercialize their ideas.</p>
+            </div>
+            <div class="pillar-item">
+              <span class="advantage-marker" aria-hidden="true"></span>
+              <h3 class="advantage-title text-white font-semibold text-sm mb-1">Government Contracts as Commercial Launchpads</h3>
+              <p class="text-brand-text text-sm leading-relaxed">DARPA, In-Q-Tel, NASA SBIR, and DoD contracts don&rsquo;t just validate technology &mdash; they fund it non-dilutively. Many great deep tech companies start with government contracts before VC. We navigate this for founders to help them convert government R&amp;D dollars into commercial products at scale.</p>
+            </div>
+            <div class="pillar-item pillar-item-last">
+              <span class="advantage-marker" aria-hidden="true"></span>
+              <h3 class="advantage-title text-white font-semibold text-sm mb-1">Commercial Market Timing</h3>
+              <p class="text-brand-text text-sm leading-relaxed">We invest at the inflection point where deep tech transitions from lab to market &mdash; when the technology is proven but commercial distribution hasn&rsquo;t been won yet. We help founders identify the highest-value commercial beachhead and build a repeatable go-to-market strategy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Focus areas -->
+    <section id="portfolio" class="py-24 md:py-32 relative overflow-hidden" aria-labelledby="focus-heading">
+      <div class="absolute inset-0 focus-bg" aria-hidden="true"></div>
+      <div class="relative z-10 max-w-[1440px] mx-auto px-5 md:px-10 lg:px-14">
+
+        <div class="mb-14 reveal max-w-2xl">
+          <p class="section-eyebrow mb-4">6 Focus Areas · 2026</p>
+          <h2 id="focus-heading" class="font-display text-4xl md:text-5xl font-bold text-white">
+            High-signal <span class="text-gradient-accent">investment</span> themes.
+          </h2>
+          <p class="text-brand-text text-sm md:text-base leading-relaxed mt-5">
+            We go narrow and deep, focusing on specific intersections where we can become the definitive investor. These are our highest-conviction areas for 2026.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 reveal delay-100">
+
+          <!-- Card 1 -->
+          <article class="focus-card group rounded-2xl p-6 border border-brand-border bg-brand-card hover:border-brand-cyan transition-all duration-300 cursor-default">
+            <div class="focus-icon-wrap w-10 h-10 rounded-lg bg-brand-border flex items-center justify-center mb-5 group-hover:bg-brand-cyan/10 transition-colors">
+              <img src="assets/agentic_ai.svg" alt="" class="focus-icon" width="44" height="44" aria-hidden="true" />
+            </div>
+            <h3 class="text-white font-semibold text-sm mb-2">Applied AI Infrastructure</h3>
+            <p class="text-brand-text text-xs leading-relaxed">Multi-agent coordination, AI observability, safety &amp; compliance tooling.</p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="focus-card group rounded-2xl p-6 border border-brand-border bg-brand-card hover:border-brand-cyan transition-all duration-300 cursor-default">
+            <div class="focus-icon-wrap w-10 h-10 rounded-lg bg-brand-border flex items-center justify-center mb-5 group-hover:bg-brand-cyan/10 transition-colors">
+              <img src="assets/physical_ai.svg" alt="" class="focus-icon" width="44" height="44" aria-hidden="true" />
+            </div>
+            <h3 class="text-white font-semibold text-sm mb-2">Physical AI &amp; Robotics</h3>
+            <p class="text-brand-text text-xs leading-relaxed">Factory automation, industrial robotics, digital twin platforms. Intelligence moving from cloud to physical at the 2026 inflection year.</p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="focus-card group rounded-2xl p-6 border border-brand-border bg-brand-card hover:border-brand-cyan transition-all duration-300 cursor-default">
+            <div class="focus-icon-wrap w-10 h-10 rounded-lg bg-brand-border flex items-center justify-center mb-5 group-hover:bg-brand-cyan/10 transition-colors">
+              <img src="assets/edge.svg" alt="" class="focus-icon" width="35" height="35" aria-hidden="true" />
+            </div>
+            <h3 class="text-white font-semibold text-sm mb-2">Edge AI &amp; Custom Chips</h3>
+            <p class="text-brand-text text-xs leading-relaxed">Efficient, low-power ASICs for specific workloads. Median chip round now $50M+ — seed/Series A edge bets are wide open.</p>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="focus-card group rounded-2xl p-6 border border-brand-border bg-brand-card hover:border-brand-cyan transition-all duration-300 cursor-default">
+            <div class="focus-icon-wrap w-10 h-10 rounded-lg bg-brand-border flex items-center justify-center mb-5 group-hover:bg-brand-cyan/10 transition-colors">
+              <img src="assets/defence_tech.svg" alt="" class="focus-icon" width="44" height="44" aria-hidden="true" />
+            </div>
+            <h3 class="text-white font-semibold text-sm mb-2">Defense Tech &amp; Dual-Use AI</h3>
+            <p class="text-brand-text text-xs leading-relaxed">Defense VC hit record $49.8B in 2025 — nearly 2× YoY. Drone swarms, maritime AI and autonomous systems are the hottest and fastest growing.</p>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="focus-card group rounded-2xl p-6 border border-brand-border bg-brand-card hover:border-brand-cyan transition-all duration-300 cursor-default">
+            <div class="focus-icon-wrap w-10 h-10 rounded-lg bg-brand-border flex items-center justify-center mb-5 group-hover:bg-brand-cyan/10 transition-colors">
+              <img src="assets/space_infrastructure.svg" alt="" class="focus-icon" width="44" height="44" aria-hidden="true" />
+            </div>
+            <h3 class="text-white font-semibold text-sm mb-2">Space Infrastructure</h3>
+            <p class="text-brand-text text-xs leading-relaxed">Payload components, orbital services, Earth Observation analytics. Space economy: $600B today → $1.8T by 2035.</p>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="focus-card group rounded-2xl p-6 border border-brand-border bg-brand-card hover:border-brand-cyan transition-all duration-300 cursor-default">
+            <div class="focus-icon-wrap w-10 h-10 rounded-lg bg-brand-border flex items-center justify-center mb-5 group-hover:bg-brand-cyan/10 transition-colors">
+              <img src="assets/vertical_ai.svg" alt="" class="focus-icon" width="44" height="44" aria-hidden="true" />
+            </div>
+            <h3 class="text-white font-semibold text-sm mb-2">Vertical AI</h3>
+            <p class="text-brand-text text-xs leading-relaxed">Energy, Biotech, Industrial AI, financial, sports and entertainment. Less crowded ($50M+): seed/Series A edge bets are a far barrier to entry.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Differentiation -->
+    <section id="team" class="py-24 md:py-32" aria-labelledby="strategy-heading">
+      <div class="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-14">
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+
+          <div class="reveal strategy-intro">
+            <p class="section-eyebrow mb-4">Differentiation Strategy</p>
+            <h2 id="strategy-heading" class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              How to <span class="text-gradient-accent">win</span> with our size.
+            </h2>
+            <p class="strategy-desc text-brand-text text-sm md:text-base leading-relaxed max-w-xl">
+              At this size, we win where Tier-1 can&rsquo;t&mdash;deep tech expertise, access to state-of-the-art researchers, government access, syndication with prominent early investors, and hands-on execution.
+            </p>
+          </div>
+
+          <div class="advantage-list reveal delay-100">
+            <div class="advantage-item">
+              <span class="advantage-marker" aria-hidden="true"></span>
+              <h3 class="advantage-title text-white font-semibold text-sm mb-1">Go Narrow &amp; Deep</h3>
+              <p class="text-brand-text text-sm leading-relaxed">Pick 2 themes and become the definitive fund at that intersection. Generalism at this size is a losing strategy.</p>
+            </div>
+            <div class="advantage-item">
+              <span class="advantage-marker" aria-hidden="true"></span>
+              <h3 class="advantage-title text-white font-semibold text-sm mb-1">Technical GP Credibility</h3>
+              <p class="text-brand-text text-sm leading-relaxed">Ex-founders, researchers, or domain operators on your team. The best seed deals go to investors founders trust technically.</p>
+            </div>
+            <div class="advantage-item">
+              <span class="advantage-marker" aria-hidden="true"></span>
+              <h3 class="advantage-title text-white font-semibold text-sm mb-1">Academic Lab Pipeline</h3>
+              <p class="text-brand-text text-sm leading-relaxed">MIT, Stanford, CMU, Caltech, Berkeley, Sandia, NREL before research becomes a company. First-call advantage at formation.</p>
+            </div>
+            <div class="advantage-item">
+              <span class="advantage-marker" aria-hidden="true"></span>
+              <h3 class="advantage-title text-white font-semibold text-sm mb-1">Partners to Founders</h3>
+              <p class="text-brand-text text-sm leading-relaxed">We build long-term trust with the founding team, and partner with them through both times of volatility and growth.</p>
+            </div>
+            <div class="advantage-item advantage-item-last">
+              <span class="advantage-marker" aria-hidden="true"></span>
+              <h3 class="advantage-title text-white font-semibold text-sm mb-1">Hands-On Operations</h3>
+              <p class="text-brand-text text-sm leading-relaxed">We win against larger funds by being the most operationally useful: hiring, go to market strategy, business development and sales, government &amp; enterprise navigation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Primary focus -->
+    <section id="focus" class="py-12 md:py-32 relative overflow-hidden" aria-labelledby="opportunity-heading">
+      <div class="absolute inset-0 opportunity-bg" aria-hidden="true"></div>
+      <div class="relative z-10 max-w-[1440px] mx-auto px-5 md:px-10 lg:px-14">
+
+        <div class="mb-6 md:mb-16 reveal">
+          <h2 id="opportunity-heading" class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white md:whitespace-nowrap">
+            The <span class="text-gradient-accent">clearest</span> opportunity.
+          </h2>
+        </div>
+
+        <div class="opportunity-panel rounded-3xl border border-brand-border bg-brand-card/80 backdrop-blur p-5 md:p-10 reveal delay-100">
+          <p class="section-eyebrow mb-3">Primary Focus</p>
+          <h3 class="font-display text-xl md:text-2xl font-bold text-white mb-4">Defense AI &bull; Edge Chips &bull; Physical AI</h3>
+          <p class="text-brand-text text-sm leading-relaxed mb-10 max-w-2xl">This convergence is the highest-returning high-barrier to entry for generalist funds, strong government tailwinds, and increasingly viable commercial pathways create a structural advantage for specialized investors.</p>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <div class="opportunity-card rounded-2xl p-6 border border-brand-border bg-brand-navy/50">
+              <h4 class="text-white font-semibold text-sm mb-3 flex items-center gap-2">
+                Structural Advantage
+              </h4>
+              <p class="text-brand-text text-xs leading-relaxed">Generalist VCs lack the technical depth and government connections to compete. A specialized fund with GP credibility in defense/aerospace domains wins the best deals at formation.</p>
+            </div>
+
+            <div class="opportunity-card rounded-2xl p-6 border border-brand-border bg-brand-navy/50">
+              <h4 class="text-white font-semibold text-sm mb-3 flex items-center gap-2">
+                Market Timing
+              </h4>
+              <p class="text-brand-text text-xs leading-relaxed">Defense VC 2× Yoy. Edge chips underpriced vs. long-term demand. Physical AI at 2026 inflection. All three tailwinds converge now — the entry window is open.</p>
+            </div>
+
+            <div class="opportunity-card rounded-2xl p-6 border border-brand-border bg-brand-navy/50">
+              <h4 class="text-white font-semibold text-sm mb-3 flex items-center gap-2">
+                High Barriers to Entry
+              </h4>
+              <p class="text-brand-text text-xs leading-relaxed">Domain expertise and government security clearances create moats generalist investors cannot easily replicate.</p>
+            </div>
+
+            <div class="opportunity-card rounded-2xl p-6 border border-brand-border bg-brand-navy/50">
+              <h4 class="text-white font-semibold text-sm mb-3 flex items-center gap-2">
+                Government Tailwinds
+              </h4>
+              <p class="text-brand-text text-xs leading-relaxed">Record defense VC spending, DARPA programs, and DoD modernization mandates create structural deal flow.</p>
+            </div>
+
+            <div class="opportunity-card rounded-2xl p-6 border border-brand-border bg-brand-navy/50">
+              <h4 class="text-white font-semibold text-sm mb-3 flex items-center gap-2">
+                Commercial Pathways
+              </h4>
+              <p class="text-brand-text text-xs leading-relaxed">Dual-use architecture ensures portfolio companies build both government and commercial revenue streams.</p>
+            </div>
+
+            <div class="opportunity-card rounded-2xl p-6 border border-brand-border bg-brand-navy/50">
+              <h4 class="text-white font-semibold text-sm mb-3 flex items-center gap-2">
+                Power Law Returns
+              </h4>
+              <p class="text-brand-text text-xs leading-relaxed">Concentrated ownership in category-defining companies drives outsized fund returns.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="py-28 md:py-36 relative overflow-hidden text-center" aria-labelledby="cta-heading">
+      <div class="absolute inset-0 cta-bg" aria-hidden="true"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-5 reveal">
+        <h2 id="cta-heading" class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-10">
+          The entry window<br/>
+          is <span class="text-gradient-accent">OPEN NOW</span>
+        </h2>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="" class="btn-cta">Partner With Us</a>
+          <a href="" class="btn-founder">Founder Inquiries</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer border-t border-brand-border py-16" role="contentinfo">
+    <div class="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-14">
+      <div class="footer-grid grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-14">
+
+        <div class="footer-brand">
+          <a href="#" class="site-logo site-logo--footer mb-5" aria-label="Altura Partners home">
+            <img src="assets/logo.svg" alt="" class="site-logo-mark" width="52" height="41" aria-hidden="true" />
+            <span class="site-logo-wordmark site-logo-wordmark--footer" aria-hidden="true"></span>
+          </a>
+          <p class="footer-brand-desc">
+            An early-stage venture fund investing at the frontier of AI, Semiconductors, Physical AI, Space, and Defense. $50–70M · Seed &amp; Series A · 2026 Vintage.
+          </p>
+        </div>
+
+        <div>
+          <p class="footer-col-heading">Fund</p>
+          <ul class="footer-link-list">
+            <li><a href="#thesis">Investment Thesis</a></li>
+            <li><a href="#team">Strategy</a></li>
+            <li><a href="#thesis">Fund Construction</a></li>
+            <li><a href="#contact">LP Ecosystem</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-col-heading">Focus Area</p>
+          <ul class="footer-link-list">
+            <li><a href="#portfolio">Agentic AI</a></li>
+            <li><a href="#portfolio">Physical AI &amp; Robotics</a></li>
+            <li><a href="#portfolio">Edge AI &amp; Chips</a></li>
+            <li><a href="#portfolio">Defense Tech</a></li>
+            <li><a href="#portfolio">Space Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-col-heading">Contact</p>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <a href="#contact" class="footer-contact-title">LP Inquiries</a>
+              <p class="footer-contact-desc">Contact us for fund investment opportunities and co-invest rights.</p>
+            </li>
+            <li class="footer-contact-item">
+              <a href="#contact" class="footer-contact-title">Founder Inquiries</a>
+              <p class="footer-contact-desc">Submit materials for consideration at the seed and Series A stage.</p>
+            </li>
+            <li class="footer-contact-item">
+              <a href="#" class="footer-contact-title">Press</a>
+              <p class="footer-contact-desc">Media inquiries and partnership discussions.</p>
+            </li>
+            <li class="footer-contact-item">
+              <a href="#" class="footer-contact-title">LP Portal</a>
+              <p class="footer-contact-desc">Existing LPs can access the secure portal for fund updates and documents.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom pt-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <p class="footer-copyright">&copy; 2026 Altura Partners. All rights reserved.</p>
+        <div class="flex flex-col sm:flex-row items-center gap-3">
+          <a href="#" class="btn-footer">LP Portal Access</a>
+          <a href="#" class="btn-footer">Submit Materials</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<svg width="220" height="48" viewBox="0 0 220 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <rect x="0.5" y="0.5" width="219" height="47" rx="23.5" fill="url(#thesis-fill)" stroke="url(#thesis-stroke)" stroke-width="1"/>
+  <defs>
+    <linearGradient id="thesis-fill" x1="110" y1="0" x2="110" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C2848" stop-opacity="0.95"/>
+      <stop offset="0.35" stop-color="#081830"/>
+      <stop offset="1" stop-color="#030912"/>
+    </linearGradient>
+    <linearGradient id="thesis-stroke" x1="110" y1="0" x2="110" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3CC8E8" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#1A5A78" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+</svg>

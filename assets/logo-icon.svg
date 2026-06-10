@@ -1,0 +1,14 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <polygon points="20,3 37,35 3,35" fill="url(#logo-grad-back)"/>
+  <polygon points="20,9 31,33 9,33" fill="url(#logo-grad-front)"/>
+  <defs>
+    <linearGradient id="logo-grad-back" x1="20" y1="3" x2="20" y2="35" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0A5FA8"/>
+      <stop offset="100%" stop-color="#050E1F"/>
+    </linearGradient>
+    <linearGradient id="logo-grad-front" x1="20" y1="9" x2="20" y2="33" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00D2FF"/>
+      <stop offset="100%" stop-color="#00B4CC"/>
+    </linearGradient>
+  </defs>
+</svg>
