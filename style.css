@@ -191,8 +191,37 @@ h3.font-display.font-semibold {
   }
 }
 
-.opportunity-panel .display-heading {
+.opportunity-panel {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.opportunity-panel .display-heading,
+.opportunity-panel-heading {
   margin-bottom: 1rem;
+}
+
+.opportunity-cards-grid {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .opportunity-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .opportunity-cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 767px) {
@@ -208,9 +237,12 @@ h3.font-display.font-semibold {
 
   #thesis-heading,
   #focus-heading,
-  #strategy-heading,
-  #cta-heading {
+  #strategy-heading {
     line-height: 1.25;
+  }
+
+  #cta-heading {
+    line-height: 1.6;
   }
 
   #focus-heading {
@@ -551,14 +583,18 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 
 .advantage-title {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   font-family: var(--font-heading);
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
-  line-height: 1;
-  letter-spacing: 0.08em;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
   color: #ffffff;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .advantage-body {
@@ -583,11 +619,6 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
   .advantage-item {
     padding-bottom: 2rem;
     margin-bottom: 2rem;
-  }
-
-  .advantage-title {
-    font-size: 16px;
-    white-space: normal;
   }
 
   .advantage-body {
@@ -798,7 +829,7 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 @media (max-width: 768px) {
   .hero-heading {
     font-size: clamp(2rem, 8vw, 48px);
-    line-height: 1.25;
+    line-height: 1.6;
   }
 
   .hero-desc {
@@ -892,24 +923,31 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 /* ─── Focus cards grid (Figma 1279×594) ─── */
 .focus-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 405px);
-  gap: 32px;
+  grid-template-columns: 1fr;
+  gap: 24px;
   width: 100%;
-  max-width: 1279px;
-  min-height: 594px;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
   opacity: 1;
 }
 
 /* ─── Focus area cards (Figma 405×281) ─── */
+.focus-cards-grid > .focus-card {
+  min-width: 0;
+}
+
 .focus-card {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-  width: 405px;
-  max-width: 405px;
-  min-height: 281px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
   padding: 24px;
   border-radius: 12px;
   border: 2px solid rgba(255, 255, 255, 0.12);
@@ -973,15 +1011,18 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 .focus-card-title {
   margin: 0 0 10px;
   width: 100%;
-  min-height: 35px;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
   font-family: var(--font-heading);
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
-  line-height: 1;
-  letter-spacing: 0.08em;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
   color: #ffffff;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .focus-card-body {
@@ -1003,32 +1044,68 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
   flex-shrink: 0;
 }
 
-@media (max-width: 1310px) {
+@media (min-width: 640px) {
   .focus-cards-grid {
-    grid-template-columns: repeat(2, minmax(0, 405px));
-    max-width: 100%;
-    min-height: 0;
-    justify-content: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .focus-cards-grid {
+    grid-template-columns: repeat(3, 405px);
+    gap: 32px;
+    max-width: 1279px;
+    min-height: 594px;
+  }
+
+  .focus-card {
+    width: 405px;
+    max-width: 405px;
+    min-height: 281px;
+  }
+
+  .focus-card-title {
+    line-height: 1;
+    letter-spacing: 0.08em;
+    min-height: 35px;
+    white-space: nowrap;
+  }
+
+  .advantage-title {
+    line-height: 1;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
   }
 }
 
 @media (max-width: 767px) {
-  .focus-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    min-height: 0;
-  }
-
-  .focus-card {
-    width: 100%;
-    max-width: 100%;
-    min-height: 0;
-    height: auto;
-  }
-
-  .focus-card-title {
+  .focus-card-title,
+  .advantage-title {
     font-size: 16px;
-    white-space: normal;
+    line-height: 1.5;
+  }
+
+  #opportunity-heading {
+    line-height: 1.6;
+  }
+
+  .opportunity-panel {
+    padding: 1.25rem !important;
+  }
+
+  .opportunity-panel .section-eyebrow {
+    margin-bottom: 0.75rem;
+  }
+
+  .opportunity-panel-heading {
+    font-size: clamp(1.125rem, 5vw, 1.75rem);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .opportunity-cards-grid {
+    gap: 1rem;
   }
 }
 
@@ -1063,13 +1140,19 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
   box-shadow: 0 0 0 1px rgba(0,212,255,0.3), 0 8px 32px rgba(0,180,204,0.08);
 }
 /* ─── Opportunity panel cards (Figma) ─── */
+.opportunity-cards-grid > .opportunity-card {
+  min-width: 0;
+}
+
 .opportunity-card {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100%;
-  max-width: 580px;
-  min-height: 161px;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
   padding: 24px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -1083,47 +1166,79 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 
 .opportunity-card-title {
   margin: 0;
-  max-width: 258px;
-  min-height: 35px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
   font-family: var(--font-heading);
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
-  line-height: 1;
-  letter-spacing: 0.08em;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
   color: #ffffff;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .opportunity-card-body {
   margin: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   font-family: var(--font-body);
   font-weight: 400;
   font-style: normal;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 1.5;
   letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.65);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .opportunity-card:hover {
   border-color: rgba(0, 212, 255, 0.25);
 }
 
-@media (max-width: 767px) {
+.opportunity-panel-heading {
+  line-height: 1.6;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 1024px) {
   .opportunity-card {
-    max-width: 100%;
-    min-height: 0;
+    max-width: 580px;
+    min-height: 161px;
   }
 
   .opportunity-card-title {
-    white-space: normal;
+    max-width: 258px;
+    min-height: 35px;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  .opportunity-card-body {
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .opportunity-card {
+    padding: 20px;
+  }
+
+  .opportunity-card-title {
     font-size: 16px;
+    line-height: 1.5;
   }
 
   .opportunity-card-body {
     font-size: 13px;
-    line-height: 18px;
   }
 }
 
