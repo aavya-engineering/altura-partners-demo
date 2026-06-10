@@ -37,16 +37,184 @@ h3.font-display.font-semibold {
   font-weight: 400;
 }
 
-/* Section headings — Boldonse needs extra line-height (hero excluded) */
-h2.font-display,
-h3.font-display {
-  line-height: 1.4;
+/* ─── Section display headings (Figma: Boldonse 38px) ─── */
+.display-heading,
+#thesis-heading,
+#focus-heading,
+#strategy-heading,
+#opportunity-heading,
+#cta-heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.display-heading .text-gradient-accent,
+#thesis-heading .text-gradient-accent,
+#focus-heading .text-gradient-accent,
+#strategy-heading .text-gradient-accent,
+#opportunity-heading .text-gradient-accent,
+#cta-heading .text-gradient-accent {
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+.display-heading-line {
+  display: block;
+}
+
+.display-heading-line--nowrap {
+  white-space: nowrap;
+}
+
+#thesis-heading,
+#focus-heading,
+#strategy-heading,
+#cta-heading {
+  line-height: 1.6;
+}
+
+#thesis-heading,
+#strategy-heading {
+  margin-bottom: 1.5rem;
+}
+
+.focus-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 797px;
+  margin-bottom: 1.5rem;
+}
+
+#portfolio .focus-intro .section-eyebrow {
+  display: block;
+  width: 100%;
+  max-width: 797px;
+  min-height: 25px;
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  opacity: 1;
+}
+
+#focus-heading {
+  width: 100%;
+  max-width: 797px;
+  min-height: 73px;
+  margin: 0;
+}
+
+#opportunity-heading {
+  margin-bottom: 1.5rem;
+}
+
+#cta-heading {
+  display: block;
+  width: 100%;
+  max-width: 466px;
+  min-height: 146px;
+  margin: 0;
+  text-align: center;
+}
+
+/* ─── Contact / CTA section (Figma 1440×475) ─── */
+#contact {
+  position: relative;
+  width: 100%;
+  min-height: 475px;
+  padding: 120px max(1.25rem, calc((100% - 640px) / 2));
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contact .contact-inner {
+  width: 100%;
+  max-width: 640px;
+  min-height: 235px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+#contact #cta-heading {
+  width: min(466px, 100%);
+  min-height: 146px;
+  margin: 0 auto;
+}
+
+#contact .cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  #contact .cta-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 767px) {
-  h2.font-display,
-  h3.font-display {
-    line-height: 1.45;
+  #contact {
+    min-height: 0;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  #contact .contact-inner {
+    min-height: 0;
+    gap: 1.5rem;
+  }
+
+  #contact #cta-heading {
+    min-height: 0;
+  }
+}
+
+.opportunity-panel .display-heading {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+  .display-heading,
+  #thesis-heading,
+  #focus-heading,
+  #strategy-heading,
+  #opportunity-heading,
+  #cta-heading {
+    font-size: clamp(1.625rem, 6.5vw, 38px);
+    min-height: 0;
+  }
+
+  #thesis-heading,
+  #focus-heading,
+  #strategy-heading,
+  #cta-heading {
+    line-height: 1.25;
+  }
+
+  #focus-heading {
+    max-width: 100%;
   }
 }
 
@@ -343,15 +511,29 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 }
 
 /* ─── Pillar & advantage lists (Figma dividers) ─── */
-.pillar-item,
-.advantage-item {
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(26, 45, 74, 0.8);
+.pillar-list,
+.advantage-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 872px;
 }
 
-.pillar-item-last,
-.advantage-item-last {
+.pillar-item,
+.advantage-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 872px;
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-sizing: border-box;
+}
+
+.pillar-item:last-child,
+.advantage-item:last-child {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
@@ -359,15 +541,85 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 
 .advantage-marker {
   display: block;
+  flex-shrink: 0;
   width: 40px;
   height: 8px;
+  margin: 0;
   opacity: 1;
   background: #308A9B;
-  margin-bottom: 0.85rem;
+}
+
+.advantage-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.advantage-body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.advantage-highlight {
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .pillar-item,
+  .advantage-item {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .advantage-title {
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  .advantage-body {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .strategy-intro .strategy-desc {
   max-width: 34rem;
+}
+
+#thesis .strategy-desc {
+  width: 100%;
+  max-width: 367px;
+  min-height: 96px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.65);
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  #thesis .strategy-desc {
+    font-size: clamp(1rem, 3.5vw, 22px);
+    line-height: 1.45;
+    min-height: 0;
+  }
 }
 
 /* ─── Footer (always dark) ─── */
@@ -430,10 +682,12 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
   font-style: normal;
   font-size: 16px;
   line-height: 1;
-  letter-spacing: 0;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-align: left;
   color: #ffffff;
   margin-bottom: 1.25rem;
+  opacity: 1;
 }
 
 .footer-brand-desc {
@@ -526,10 +780,31 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
   line-height: inherit;
 }
 
+.hero-desc {
+  width: 100%;
+  max-width: 604px;
+  min-height: 76px;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.75);
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   .hero-heading {
     font-size: clamp(2rem, 8vw, 48px);
     line-height: 1.25;
+  }
+
+  .hero-desc {
+    font-size: clamp(1rem, 4vw, 24px);
+    line-height: 1.583;
+    min-height: 0;
   }
 }
 
@@ -614,12 +889,147 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
   }
 }
 
+/* ─── Focus cards grid (Figma 1279×594) ─── */
+.focus-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 405px);
+  gap: 32px;
+  width: 100%;
+  max-width: 1279px;
+  min-height: 594px;
+  opacity: 1;
+}
+
+/* ─── Focus area cards (Figma 405×281) ─── */
+.focus-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 405px;
+  max-width: 405px;
+  min-height: 281px;
+  padding: 24px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(
+    114.78deg,
+    rgba(39, 51, 107, 0.8) 1.8%,
+    rgba(16, 20, 58, 0.8) 43.84%,
+    rgba(16, 20, 58, 0.8) 66.14%,
+    rgba(39, 51, 107, 0.8) 98.31%
+  );
+  opacity: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+  cursor: default;
+  transition: border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.focus-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 58%;
+  height: 58%;
+  background-image:
+    linear-gradient(rgba(120, 170, 210, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 170, 210, 0.12) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: linear-gradient(135deg, transparent 15%, rgba(0, 0, 0, 0.85) 70%);
+  -webkit-mask-image: linear-gradient(135deg, transparent 15%, rgba(0, 0, 0, 0.85) 70%);
+  pointer-events: none;
+}
+
+.focus-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.focus-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  margin: 0 0 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background-color 300ms ease, border-color 300ms ease;
+}
+
+.focus-card.group:hover .focus-icon-wrap,
+.focus-card:hover .focus-icon-wrap {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.focus-card-title {
+  margin: 0 0 10px;
+  width: 100%;
+  min-height: 35px;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.focus-card-body {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.65);
+}
+
 /* ─── Focus area icons ─── */
 .focus-icon {
   width: 22px;
   height: 22px;
   object-fit: contain;
   flex-shrink: 0;
+}
+
+@media (max-width: 1310px) {
+  .focus-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 405px));
+    max-width: 100%;
+    min-height: 0;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .focus-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    min-height: 0;
+  }
+
+  .focus-card {
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    height: auto;
+  }
+
+  .focus-card-title {
+    font-size: 16px;
+    white-space: normal;
+  }
 }
 
 /* ─── Scroll line ─── */
@@ -652,8 +1062,69 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 .focus-card:hover {
   box-shadow: 0 0 0 1px rgba(0,212,255,0.3), 0 8px 32px rgba(0,180,204,0.08);
 }
+/* ─── Opportunity panel cards (Figma) ─── */
+.opportunity-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 580px;
+  min-height: 161px;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  opacity: 1;
+  box-sizing: border-box;
+  transition: border-color 300ms ease;
+}
+
+.opportunity-card-title {
+  margin: 0;
+  max-width: 258px;
+  min-height: 35px;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.opportunity-card-body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.65);
+}
+
 .opportunity-card:hover {
-  border-color: rgba(0,212,255,0.25);
+  border-color: rgba(0, 212, 255, 0.25);
+}
+
+@media (max-width: 767px) {
+  .opportunity-card {
+    max-width: 100%;
+    min-height: 0;
+  }
+
+  .opportunity-card-title {
+    white-space: normal;
+    font-size: 16px;
+  }
+
+  .opportunity-card-body {
+    font-size: 13px;
+    line-height: 18px;
+  }
 }
 
 /* ─── Section eyebrow ─── */
@@ -839,6 +1310,10 @@ html:not(.dark) .btn-founder:hover {
 html:not(.dark) #contact .cta-bg {
   background: #E0EDF0;
 }
+html:not(.dark) #thesis #thesis-heading,
+html:not(.dark) #portfolio #focus-heading,
+html:not(.dark) #team #strategy-heading,
+html:not(.dark) #focus #opportunity-heading,
 html:not(.dark) #contact #cta-heading {
   color: #032452;
 }
@@ -881,6 +1356,16 @@ html:not(.dark) #team .advantage-item {
   border-bottom-color: rgba(3, 36, 82, 0.14);
 }
 
+html:not(.dark) #thesis .advantage-title,
+html:not(.dark) #team .advantage-title {
+  color: #032452;
+}
+
+html:not(.dark) #thesis .advantage-body,
+html:not(.dark) #team .advantage-body {
+  color: rgba(3, 36, 82, 0.72);
+}
+
 html:not(.dark) #portfolio .section-eyebrow,
 html:not(.dark) #team .section-eyebrow,
 html:not(.dark) #thesis .section-eyebrow {
@@ -905,20 +1390,45 @@ html:not(.dark) #portfolio .section-eyebrow::before {
 }
 
 html:not(.dark) #portfolio .focus-card {
-  background: #EAF3F5;
-  border-color: rgba(3, 36, 82, 0.1);
+  border: 2px solid #0324521A;
+  background: linear-gradient(
+    114.78deg,
+    #EAF3F5 1.8%,
+    #DCE8EC 43.84%,
+    #D8E6EB 66.14%,
+    #EAF3F5 98.31%
+  );
+  box-shadow: 8px 8px 12px 0px #0000000D;
+}
+
+html:not(.dark) #portfolio .focus-card::before {
+  background-image:
+    linear-gradient(rgba(3, 36, 82, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(3, 36, 82, 0.07) 1px, transparent 1px);
 }
 
 html:not(.dark) #portfolio .focus-icon-wrap {
-  background-color: #ffffff;
+  background: #ffffff;
+  border: 1px solid rgba(3, 36, 82, 0.1);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
-html:not(.dark) #portfolio .focus-card h3 {
+html:not(.dark) #portfolio .focus-card:hover .focus-icon-wrap {
+  background: #ffffff;
+  border-color: rgba(3, 36, 82, 0.18);
+}
+
+html:not(.dark) #portfolio .focus-card-title {
   color: #032452;
 }
 
-html:not(.dark) #portfolio .focus-card p {
+html:not(.dark) #portfolio .focus-card-body {
   color: rgba(3, 36, 82, 0.72);
+}
+
+html:not(.dark) #portfolio .focus-icon {
+  filter: brightness(0) saturate(100%) invert(11%) sepia(42%) saturate(2140%) hue-rotate(182deg) brightness(92%) contrast(101%);
 }
 
 /* Clearest opportunity — light mode */
@@ -930,10 +1440,6 @@ html:not(.dark) #focus .opportunity-bg {
   background: #ffffff;
 }
 
-html:not(.dark) #focus #opportunity-heading {
-  color: #032452;
-}
-
 html:not(.dark) #focus .opportunity-panel {
   background: linear-gradient(103.37deg, #308A9B 0.38%, #2C8396 99.81%);
   border-color: transparent;
@@ -942,13 +1448,11 @@ html:not(.dark) #focus .opportunity-panel {
 
 html:not(.dark) #focus .opportunity-panel .text-brand-cyan,
 html:not(.dark) #focus .opportunity-panel .text-white,
-html:not(.dark) #focus .opportunity-panel h3,
-html:not(.dark) #focus .opportunity-panel h4 {
+html:not(.dark) #focus .opportunity-panel h3 {
   color: #ffffff;
 }
 
-html:not(.dark) #focus .opportunity-panel .text-brand-text,
-html:not(.dark) #focus .opportunity-panel .opportunity-card p {
+html:not(.dark) #focus .opportunity-panel .text-brand-text {
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -959,15 +1463,16 @@ html:not(.dark) #focus .opportunity-panel .opportunity-card {
   border-color: rgba(255, 255, 255, 0.22);
 }
 
-html:not(.dark) #focus .opportunity-panel .opportunity-card h4 {
+html:not(.dark) #focus .opportunity-panel .opportunity-card-title {
   color: #ffffff;
+}
+
+html:not(.dark) #focus .opportunity-panel .opportunity-card-body {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 html:not(.dark) #focus .opportunity-panel .opportunity-card .bg-brand-cyan {
   background-color: #ffffff;
-}
-html:not(.dark) .focus-icon {
-  filter: brightness(0) saturate(100%) invert(48%) sepia(98%) saturate(1200%) hue-rotate(163deg) brightness(95%) contrast(101%);
 }
 
 /* ─── Reduced motion ─── */
