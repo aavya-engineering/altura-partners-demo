@@ -10,10 +10,10 @@
   /* ─────────────────────────────────────────
      1. THEME MANAGEMENT
   ───────────────────────────────────────── */
-  const html           = document.documentElement;
-  const themeToggle    = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+  const themeToggle = document.getElementById('theme-toggle');
   const themeIconLight = document.getElementById('theme-icon-light');
-  const themeIconDark  = document.getElementById('theme-icon-dark');
+  const themeIconDark = document.getElementById('theme-icon-dark');
 
   function applyTheme(isDark) {
     html.classList.toggle('dark', isDark);
@@ -51,8 +51,8 @@
   /* ─────────────────────────────────────────
      2. MOBILE MENU
   ───────────────────────────────────────── */
-  const menuToggle  = document.getElementById('menu-toggle');
-  const mobileMenu  = document.getElementById('mobile-menu');
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
   const mobileLinks = mobileMenu.querySelectorAll('a');
 
   function openMenu() {
@@ -162,9 +162,9 @@
     cards.forEach(card => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
-        const cx = rect.left + rect.width  / 2;
-        const cy = rect.top  + rect.height / 2;
-        const dx = (e.clientX - cx) / (rect.width  / 2);
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) / (rect.width / 2);
         const dy = (e.clientY - cy) / (rect.height / 2);
         card.style.transform = `perspective(600px) rotateY(${dx * 4}deg) rotateX(${-dy * 4}deg) scale(1.02)`;
         card.style.transition = 'transform 0.08s linear';
