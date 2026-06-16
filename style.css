@@ -212,11 +212,13 @@ h3.font-display.font-semibold {
   padding: 40px;
   border-radius: 12px;
   border: 2px solid #FFFFFF1A;
-  background: linear-gradient(114.78deg,
-      rgba(39, 51, 107, 0.8) 1.8%,
-      rgba(16, 20, 58, 0.8) 43.84%,
-      rgba(16, 20, 58, 0.8) 66.14%,
-      rgba(39, 51, 107, 0.8) 98.31%);
+  background: linear-gradient(
+    114.78deg,
+    rgba(39, 51, 107, 0.8) 1.8%,  
+    rgba(16, 20, 58, 0.8) 43.84%,
+    rgba(16, 20, 58, 0.8) 66.14%,
+    rgba(39, 51, 107, 0.8) 98.31%
+  );
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
 }
@@ -367,6 +369,32 @@ h3.font-display.font-semibold {
   color: #E6EAEF;
 }
 
+.contact-form-status {
+  width: 100%;
+  max-width: 812px;
+  margin: -18px 0 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.contact-form-status--success {
+  color: #7ddea8;
+}
+
+.contact-form-status--error {
+  color: #ff8a8a;
+}
+
+.btn-contact-primary:disabled,
+.btn-contact-secondary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .btn-contact-primary:hover,
 .btn-contact-primary:focus-visible,
 .btn-contact-secondary:hover,
@@ -506,7 +534,6 @@ h3.font-display.font-semibold {
 }
 
 @media (max-width: 767px) {
-
   .display-heading,
   #thesis-heading,
   #focus-heading,
@@ -545,109 +572,58 @@ h3.font-display.font-semibold {
 ::-webkit-scrollbar {
   width: 5px;
 }
-
 ::-webkit-scrollbar-track {
   background: #050E1F;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #1A2D4A;
   border-radius: 99px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: #00D4FF55;
 }
 
 /* ─── Keyframes ─── */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes shimmer {
-  0% {
-    background-position: -400px 0;
-  }
-
-  100% {
-    background-position: 400px 0;
-  }
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
 }
 
 @keyframes scrollLine {
-  0% {
-    transform: scaleY(0);
-    transform-origin: top;
-    opacity: 1;
-  }
-
-  60% {
-    transform: scaleY(1);
-    transform-origin: top;
-    opacity: 1;
-  }
-
-  100% {
-    transform: scaleY(1);
-    transform-origin: bottom;
-    opacity: 0;
-  }
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  60%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
 }
 
 @keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  33% {
-    transform: translateY(-14px) rotate(1.5deg);
-  }
-
-  66% {
-    transform: translateY(-7px) rotate(-1deg);
-  }
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-14px) rotate(1.5deg); }
+  66%       { transform: translateY(-7px) rotate(-1deg); }
 }
 
 /* ─── Scroll-reveal ─── */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1),
+              transform 0.65s cubic-bezier(0.16,1,0.3,1);
 }
-
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-.reveal.delay-100 {
-  transition-delay: 0.12s;
-}
-
-.reveal.delay-200 {
-  transition-delay: 0.24s;
-}
+.reveal.delay-100 { transition-delay: 0.12s; }
+.reveal.delay-200 { transition-delay: 0.24s; }
 
 /* ─── Site header (Figma: 1440×93, fixed + glass) ─── */
 .site-header {
@@ -1042,8 +1018,8 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
   border-radius: 0;
 }
 
-#thesis .pillar-item+.pillar-item,
-#team .pillar-item+.pillar-item {
+#thesis .pillar-item + .pillar-item,
+#team .pillar-item + .pillar-item {
   border-top: 1px solid #FFFFFF33;
 }
 
@@ -1119,7 +1095,6 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 
 /* Below 1440: tighter pillar spacing in Thesis + How to Win (keep 1440 Figma exact) */
 @media (max-width: 1439px) {
-
   #thesis .pillar-item,
   #team .pillar-item {
     min-height: 0;
@@ -1139,7 +1114,6 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 }
 
 @media (max-width: 1023px) {
-
   #thesis .pillar-item,
   #team .pillar-item {
     padding: 18px;
@@ -1205,7 +1179,6 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 }
 
 @media (max-width: 767px) {
-
   #thesis .strategy-desc,
   #team .strategy-desc {
     font-size: clamp(1rem, 3.5vw, 22px);
@@ -1603,7 +1576,6 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 
 /* Tablet: release fixed Figma heights so wrapped text can't overlap */
 @media (max-width: 1023px) {
-
   .hero-copy,
   .hero-copy-body,
   .hero-heading,
@@ -1672,12 +1644,14 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(90deg,
-      rgba(3, 9, 27, 0.95) 0%,
-      rgba(3, 9, 27, 0.72) 28%,
-      rgba(3, 9, 27, 0.28) 42%,
-      rgba(3, 9, 27, 0.04) 52%,
-      transparent 58%);
+  background: linear-gradient(
+    90deg,
+    rgba(3, 9, 27, 0.95) 0%,
+    rgba(3, 9, 27, 0.72) 28%,
+    rgba(3, 9, 27, 0.28) 42%,
+    rgba(3, 9, 27, 0.04) 52%,
+    transparent 58%
+  );
 }
 
 .hero-banner-wrap {
@@ -1838,7 +1812,6 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 }
 
 @media (max-width: 767px) {
-
   #thesis-heading,
   #strategy-heading {
     min-width: 0;
@@ -1948,7 +1921,7 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 }
 
 /* ─── Focus area cards (Figma 405×281) ─── */
-.focus-cards-grid>.focus-card {
+.focus-cards-grid > .focus-card {
   min-width: 0;
 }
 
@@ -1966,11 +1939,13 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
   padding: 24px;
   border-radius: 12px;
   border: 2px solid rgba(255, 255, 255, 0.12);
-  background: linear-gradient(114.78deg,
-      rgba(39, 51, 107, 0.8) 1.8%,
-      rgba(16, 20, 58, 0.8) 43.84%,
-      rgba(16, 20, 58, 0.8) 66.14%,
-      rgba(39, 51, 107, 0.8) 98.31%);
+  background: linear-gradient(
+    114.78deg,
+    rgba(39, 51, 107, 0.8) 1.8%,
+    rgba(16, 20, 58, 0.8) 43.84%,
+    rgba(16, 20, 58, 0.8) 66.14%,
+    rgba(39, 51, 107, 0.8) 98.31%
+  );
   opacity: 1;
   overflow: hidden;
   box-sizing: border-box;
@@ -1994,7 +1969,7 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
   pointer-events: none;
 }
 
-.focus-card>* {
+.focus-card > * {
   position: relative;
   z-index: 1;
 }
@@ -2093,7 +2068,6 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 }
 
 @media (min-width: 1024px) {
-
   /* 3 fluid columns; at 1440 viewport each resolves to the Figma 405px */
   .focus-cards-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2116,7 +2090,6 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 
 /* Single-line titles only when the full Figma card width is available */
 @media (min-width: 1440px) {
-
   .focus-card-title,
   .advantage-title {
     white-space: nowrap;
@@ -2124,7 +2097,6 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 }
 
 @media (max-width: 767px) {
-
   .focus-card-title,
   .advantage-title {
     font-size: 16px;
@@ -2144,14 +2116,14 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 /* ─── Focus areas background ─── */
 .focus-bg {
   background:
-    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 212, 255, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,212,255,0.05) 0%, transparent 60%),
     linear-gradient(180deg, #070F20 0%, #050E1F 100%);
 }
 
 /* ─── Opportunity background ─── */
 .opportunity-bg {
   background:
-    radial-gradient(ellipse 70% 60% at 30% 60%, rgba(10, 132, 200, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 60% at 30% 60%, rgba(10,132,200,0.07) 0%, transparent 60%),
     linear-gradient(180deg, #050E1F 0%, #070F20 100%);
 }
 
@@ -2171,11 +2143,10 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
 
 /* ─── Focus card hover glow ─── */
 .focus-card:hover {
-  box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.3), 0 8px 32px rgba(0, 180, 204, 0.08);
+  box-shadow: 0 0 0 1px rgba(0,212,255,0.3), 0 8px 32px rgba(0,180,204,0.08);
 }
-
 /* ─── Opportunity panel cards (Figma) ─── */
-.opportunity-cards-grid>.opportunity-card {
+.opportunity-cards-grid > .opportunity-card {
   min-width: 0;
 }
 
@@ -2331,11 +2302,13 @@ html:not(.dark) .site-footer .site-logo-wordmark--footer {
   padding: 44px;
   border-radius: 12px;
   border: 2px solid #FFFFFF1A;
-  background: linear-gradient(114.78deg,
-      rgba(39, 51, 107, 0.8) 1.8%,
-      rgba(16, 20, 58, 0.8) 43.84%,
-      rgba(16, 20, 58, 0.8) 66.14%,
-      rgba(39, 51, 107, 0.8) 98.31%);
+  background: linear-gradient(
+    114.78deg,
+    rgba(39, 51, 107, 0.8) 1.8%,
+    rgba(16, 20, 58, 0.8) 43.84%,
+    rgba(16, 20, 58, 0.8) 66.14%,
+    rgba(39, 51, 107, 0.8) 98.31%
+  );
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
 }
@@ -2564,12 +2537,10 @@ body.menu-open {
 .menu-open .hamburger-line:nth-child(1) {
   transform: translateY(5px) rotate(45deg);
 }
-
 .menu-open .hamburger-line:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
-
 .menu-open .hamburger-line:nth-child(3) {
   transform: translateY(-5px) rotate(-45deg);
 }
@@ -2633,7 +2604,6 @@ html:not(.dark) .mobile-menu .mobile-nav-link:hover {
     display: none;
   }
 }
-
 html:not(.dark) .btn-cta {
   color: #ffffff;
 }
@@ -2648,19 +2618,16 @@ html:not(.dark) .btn-nav-cta:hover,
 html:not(.dark) .btn-nav-cta:focus-visible {
   border-color: #FFFFFF55;
 }
-
 html:not(.dark) .btn-founder {
   background: transparent;
   color: #032452;
   border-color: rgba(3, 36, 82, 0.25);
 }
-
 html:not(.dark) .btn-founder:hover {
   background: transparent;
   color: #032452;
   border-color: rgba(3, 36, 82, 0.45);
 }
-
 html:not(.dark) #contact {
   background-color: #E0EDF0;
 }
@@ -2708,7 +2675,6 @@ html:not(.dark) a.contact-email-link:active,
 html:not(.dark) a.contact-email-link:focus-visible {
   color: #E0EDF0;
 }
-
 html:not(.dark) #thesis #thesis-heading,
 html:not(.dark) #portfolio #focus-heading,
 html:not(.dark) #team #strategy-heading,
@@ -2716,17 +2682,14 @@ html:not(.dark) #focus #opportunity-heading,
 html:not(.dark) #contact #cta-heading {
   color: #032452;
 }
-
 html:not(.dark) .btn-outline {
   color: #0f1e33;
   border-color: rgba(15, 30, 51, 0.25);
 }
-
 html:not(.dark) .btn-outline:hover {
   color: #0070a8;
   border-color: rgba(0, 112, 168, 0.45);
 }
-
 /* Three pillars + How we win + Focus areas — light mode */
 html:not(.dark) #thesis,
 html:not(.dark) #team {
@@ -2753,8 +2716,8 @@ html:not(.dark) #portfolio .text-brand-text {
   color: rgba(3, 36, 82, 0.72);
 }
 
-html:not(.dark) #thesis .pillar-item+.pillar-item,
-html:not(.dark) #team .pillar-item+.pillar-item {
+html:not(.dark) #thesis .pillar-item + .pillar-item,
+html:not(.dark) #team .pillar-item + .pillar-item {
   border-top: 1px solid #00000033;
 }
 
@@ -2798,11 +2761,13 @@ html:not(.dark) #portfolio .section-eyebrow::before {
 
 html:not(.dark) #portfolio .focus-card {
   border: 2px solid #0324521A;
-  background: linear-gradient(114.78deg,
-      #EAF3F5 1.8%,
-      #DCE8EC 43.84%,
-      #D8E6EB 66.14%,
-      #EAF3F5 98.31%);
+  background: linear-gradient(
+    114.78deg,
+    #EAF3F5 1.8%,
+    #DCE8EC 43.84%,
+    #D8E6EB 66.14%,
+    #EAF3F5 98.31%
+  );
   box-shadow: 8px 8px 12px 0px #0000000D;
 }
 
@@ -2882,14 +2847,10 @@ html:not(.dark) #focus .opportunity-panel .opportunity-card .bg-brand-cyan {
 
 /* ─── Reduced motion ─── */
 @media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-
   .reveal {
     opacity: 1;
     transform: none;

@@ -177,4 +177,92 @@
     });
   }
 
+
+  /* ─────────────────────────────────────────
+     6. CONTACT FORM (EmailJS)
+  ───────────────────────────────────────── */
+  const contactForm = document.getElementById('contact-form');
+
+  if (contactForm) {
+    const founderBtn = document.getElementById('founder-inquiry-btn');
+    const inquiryTypeInput = contactForm.querySelector('[name="inquiry_type"]');
+    const statusEl = document.getElementById('contact-form-status');
+    const submitBtn = contactForm.querySelector('.btn-contact-primary');
+    const defaultSubmitLabel = submitBtn.textContent.trim();
+    const config = window.ALTURA_EMAILJS || {};
+    const isConfigured =
+      config.publicKey &&
+      config.serviceId &&
+      config.templateId &&
+      !String(config.publicKey).includes('YOUR_') &&
+      !String(config.publicKey).includes('your_');
+
+    if (typeof emailjs !== 'undefined' && isConfigured) {
+      emailjs.init({ publicKey: config.publicKey });
+    }
+
+    function showStatus(message, type) {
+      statusEl.textContent = message;
+      statusEl.hidden = false;
+      statusEl.classList.remove('contact-form-status--success', 'contact-form-status--error');
+      if (type) statusEl.classList.add(`contact-form-status--${type}`);
+    }
+
+    function clearStatus() {
+      statusEl.hidden = true;
+      statusEl.textContent = '';
+      statusEl.classList.remove('contact-form-status--success', 'contact-form-status--error');
+    }
+
+    function setLoading(loading) {
+      submitBtn.disabled = loading;
+      founderBtn.disabled = loading;
+      submitBtn.textContent = loading ? 'Sending…' : defaultSubmitLabel;
+    }
+
+    submitBtn.addEventListener('click', () => {
+      inquiryTypeInput.value = 'Partners With Us';
+    });
+
+    founderBtn.addEventListener('click', () => {
+      inquiryTypeInput.value = 'Founder Inquiry';
+      contactForm.requestSubmit();
+    });
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearStatus();
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      if (typeof emailjs === 'undefined' || !isConfigured) {
+        showStatus(
+          'Email delivery is not configured yet. Please email info@alturapartners.ai directly.',
+          'error'
+        );
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        await emailjs.sendForm(config.serviceId, config.templateId, contactForm);
+        showStatus('Thank you! Your message has been sent. We\'ll be in contact soon.', 'success');
+        contactForm.reset();
+        inquiryTypeInput.value = 'Partners With Us';
+      } catch (error) {
+        console.error('EmailJS error:', error);
+        showStatus(
+          'Something went wrong. Please try again or email info@alturapartners.ai.',
+          'error'
+        );
+      } finally {
+        setLoading(false);
+      }
+    });
+  }
+
 })();
