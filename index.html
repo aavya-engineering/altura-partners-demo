@@ -427,8 +427,6 @@
               <button type="button" class="btn-contact-secondary" id="founder-inquiry-btn">Founder Inquiry</button>
             </div>
 
-            <p id="contact-form-status" class="contact-form-status" role="status" aria-live="polite" hidden></p>
-
             <div class="contact-divider" aria-hidden="true">
               <span class="contact-divider-line"></span>
               <span class="contact-divider-text">or</span>
@@ -436,7 +434,8 @@
             </div>
 
             <p class="contact-email-note">
-              Send email? <a href="mailto:info@alturapartners.ai" class="contact-email-link">info@alturapartners.ai</a>
+              Send email? <a href="mailto:contact@alturapartners.ai" class="contact-email-link">contact@alturapartners.ai
+              </a>
             </p>
           </form>
         </div>
@@ -456,7 +455,7 @@
             <span class="site-logo-wordmark site-logo-wordmark--footer" aria-hidden="true"></span>
           </a>
           <p class="footer-brand-desc">
-            An early-stage venture fund investing at the frontier of AI, Semiconductors, Physical AI, Space, and
+            An early-stage venture fund investing at the frontier of AI, Semiconductors, Physical AI, Space and
             Defense.
           </p>
         </div>
@@ -517,6 +516,22 @@
       </div>
     </div>
   </footer>
+
+  <div id="contact-modal" class="contact-modal" hidden aria-hidden="true">
+    <div class="contact-modal-backdrop" data-modal-close tabindex="-1" aria-hidden="true"></div>
+    <div class="contact-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button type="button" class="contact-modal-close" aria-label="Close dialog">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M4 4L16 16M16 4L4 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+      <img id="contact-modal-icon" class="contact-modal-icon" src="" alt="" width="96" height="96" />
+      <div class="contact-modal-content">
+        <h2 id="contact-modal-title" class="contact-modal-title"></h2>
+        <p id="contact-modal-desc" class="contact-modal-desc"></p>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="emailjs.config.js"></script>
