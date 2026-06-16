@@ -186,9 +186,17 @@
   if (contactForm) {
     const founderBtn = document.getElementById('founder-inquiry-btn');
     const inquiryTypeInput = contactForm.querySelector('[name="inquiry_type"]');
-    const statusEl = document.getElementById('contact-form-status');
     const submitBtn = contactForm.querySelector('.btn-contact-primary');
     const defaultSubmitLabel = submitBtn.textContent.trim();
+    const modal = document.getElementById('contact-modal');
+    const modalIcon = document.getElementById('contact-modal-icon');
+    const modalTitle = document.getElementById('contact-modal-title');
+    const modalDesc = document.getElementById('contact-modal-desc');
+    const modalCloseBtn = modal?.querySelector('.contact-modal-close');
+    const modalBackdrop = modal?.querySelector('[data-modal-close]');
+    const CONTACT_EMAIL = 'info@alturapartners.ai';
+    let lastFocusedElement = null;
+
     const config = window.ALTURA_EMAILJS || {};
     const isConfigured =
       config.publicKey &&
@@ -201,18 +209,57 @@
       emailjs.init({ publicKey: config.publicKey });
     }
 
-    function showStatus(message, type) {
-      statusEl.textContent = message;
-      statusEl.hidden = false;
-      statusEl.classList.remove('contact-form-status--success', 'contact-form-status--error');
-      if (type) statusEl.classList.add(`contact-form-status--${type}`);
+    const modalContent = {
+      success: {
+        icon: 'assets/success.svg',
+        iconAlt: 'Success',
+        title: 'Thank you',
+        description: "Your message has been sent. We'll be in contact soon.",
+      },
+      error: {
+        icon: 'assets/failed.svg',
+        iconAlt: 'Failed',
+        title: 'Failed',
+        description: `Failed to send your message. You can contact us directly at <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>.`,
+      },
+    };
+
+    function showModal(type) {
+      if (!modal) return;
+
+      const content = modalContent[type] || modalContent.error;
+      lastFocusedElement = document.activeElement;
+
+      modalIcon.src = content.icon;
+      modalIcon.alt = content.iconAlt;
+      modalTitle.textContent = content.title;
+      modalDesc.innerHTML = content.description;
+
+      modal.removeAttribute('hidden');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      modalCloseBtn?.focus();
     }
 
-    function clearStatus() {
-      statusEl.hidden = true;
-      statusEl.textContent = '';
-      statusEl.classList.remove('contact-form-status--success', 'contact-form-status--error');
+    function closeModal() {
+      if (!modal || modal.hasAttribute('hidden')) return;
+
+      modal.setAttribute('hidden', '');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      modalDesc.textContent = '';
+
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+      }
     }
+
+    modalCloseBtn?.addEventListener('click', closeModal);
+    modalBackdrop?.addEventListener('click', closeModal);
+
+    modal?.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
 
     function setLoading(loading) {
       submitBtn.disabled = loading;
@@ -231,7 +278,6 @@
 
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      clearStatus();
 
       if (!contactForm.checkValidity()) {
         contactForm.reportValidity();
@@ -239,10 +285,7 @@
       }
 
       if (typeof emailjs === 'undefined' || !isConfigured) {
-        showStatus(
-          'Email delivery is not configured yet. Please email info@alturapartners.ai directly.',
-          'error'
-        );
+        showModal('error');
         return;
       }
 
@@ -250,15 +293,12 @@
 
       try {
         await emailjs.sendForm(config.serviceId, config.templateId, contactForm);
-        showStatus('Thank you! Your message has been sent. We\'ll be in contact soon.', 'success');
         contactForm.reset();
         inquiryTypeInput.value = 'Partners With Us';
+        showModal('success');
       } catch (error) {
         console.error('EmailJS error:', error);
-        showStatus(
-          'Something went wrong. Please try again or email info@alturapartners.ai.',
-          'error'
-        );
+        showModal('error');
       } finally {
         setLoading(false);
       }
