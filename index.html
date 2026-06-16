@@ -402,29 +402,32 @@
                 NOW</span></span>
           </h2>
 
-          <form class="contact-form" action="#" method="post" novalidate>
+          <form id="contact-form" class="contact-form" action="#" method="post" novalidate>
+            <input type="hidden" name="inquiry_type" value="Partners With Us" />
             <div class="contact-form-fields">
               <div class="contact-form-row">
                 <label class="contact-field">
                   <img src="assets/User.svg" alt="" class="contact-field-icon" width="24" height="24"
                     aria-hidden="true" />
-                  <input type="text" name="name" placeholder="Your name" autocomplete="name" />
+                  <input type="text" name="name" placeholder="Your name" autocomplete="name" required />
                 </label>
                 <label class="contact-field">
                   <img src="assets/Mail.svg" alt="" class="contact-field-icon" width="24" height="24"
                     aria-hidden="true" />
-                  <input type="email" name="email" placeholder="Your email" autocomplete="email" />
+                  <input type="email" name="email" placeholder="Your email" autocomplete="email" required />
                 </label>
               </div>
               <label class="contact-field contact-field--textarea">
-                <textarea name="message" placeholder="Write message..." rows="4"></textarea>
+                <textarea name="message" placeholder="Write message..." rows="4" required></textarea>
               </label>
             </div>
 
             <div class="cta-actions">
-              <button type="button" class="btn-contact-primary">Partners With Us</button>
-              <button type="button" class="btn-contact-secondary">Founder Inquiry</button>
+              <button type="submit" class="btn-contact-primary">Partners With Us</button>
+              <button type="button" class="btn-contact-secondary" id="founder-inquiry-btn">Founder Inquiry</button>
             </div>
+
+            <p id="contact-form-status" class="contact-form-status" role="status" aria-live="polite" hidden></p>
 
             <div class="contact-divider" aria-hidden="true">
               <span class="contact-divider-line"></span>
@@ -453,7 +456,7 @@
             <span class="site-logo-wordmark site-logo-wordmark--footer" aria-hidden="true"></span>
           </a>
           <p class="footer-brand-desc">
-            An early-stage venture fund investing at the frontier of AI, Semiconductors, Physical AI, Space and
+            An early-stage venture fund investing at the frontier of AI, Semiconductors, Physical AI, Space, and
             Defense.
           </p>
         </div>
@@ -515,6 +518,8 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="emailjs.config.js"></script>
   <script src="main.js"></script>
 </body>
 
