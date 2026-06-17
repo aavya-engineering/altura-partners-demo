@@ -63,7 +63,7 @@
       </ul>
 
       <div class="site-nav-actions">
-        <a href="#contact" class="btn-nav-cta site-nav-cta">Partner With Us</a>
+        <a href="#contact" class="btn-nav-cta site-nav-cta" data-inquiry-type="Partners With Us">Partner With Us</a>
 
         <button id="theme-toggle" aria-label="Switch to light mode" class="theme-toggle" type="button">
           <span class="theme-toggle-inner" aria-hidden="true">
@@ -86,11 +86,12 @@
 
   <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation"
     aria-hidden="true">
-    <a href="#team" class="mobile-nav-link">Team</a>
-    <a href="#portfolio" class="mobile-nav-link">Portfolio</a>
-    <a href="#team" class="mobile-nav-link">Strategy</a>
-    <a href="#focus" class="mobile-nav-link">Focus</a>
-    <a href="#contact" class="mobile-nav-link mobile-nav-link--cta">Partner With Us</a>
+    <span class="mobile-nav-link mobile-nav-link--disabled" aria-disabled="true">Team</span>
+    <span class="mobile-nav-link mobile-nav-link--disabled" aria-disabled="true">Portfolio</span>
+    <span class="mobile-nav-link mobile-nav-link--disabled" aria-disabled="true">Strategy</span>
+    <span class="mobile-nav-link mobile-nav-link--disabled" aria-disabled="true">Focus</span>
+    <span class="mobile-nav-link mobile-nav-link--cta mobile-nav-link--disabled" aria-disabled="true">Partner With
+      Us</span>
   </div>
 
   <div class="page-shell">
@@ -140,8 +141,8 @@
                 <span class="advantage-marker" aria-hidden="true"></span>
                 <div class="pillar-content">
                   <h3 class="advantage-title">Deep Technology Sourcing</h3>
-                  <p class="advantage-body"><span class="">MIT, Stanford, CMU, Caltech, Sandia, Berkeley, and
-                      NREL[y1]</span> before research becomes a company. First-call advantage at formation stage is our
+                  <p class="advantage-body"><span class="">MIT, Stanford, CMU, Caltech and Berkeley</span> before
+                    research becomes a company. First-call advantage at formation stage is our
                     playbook. We help founders productize and commercialize their ideas.</p>
                 </div>
               </div>
@@ -217,7 +218,7 @@
               <div class="focus-card-text">
                 <h3 class="focus-card-title">Edge AI &amp; Custom Chips</h3>
                 <p class="focus-card-body">Efficient, low-power ASICs for specific workloads. Median chip round now
-                  $350M+ - seed/Series A edge bets are wide open.</p>
+                  $350M.</p>
               </div>
             </article>
 
@@ -276,7 +277,7 @@
                   <span class="display-heading-line">with our size.</span>
                 </h2>
                 <p class="strategy-desc">
-                  At this size, we win where Tier-1 can&rsquo;t-deep tech expertise, access to state-of-the-art
+                  At this size, we win where Tier-1 can&rsquo;t - Deep tech expertise, access to state-of-the-art
                   researchers, government access, syndication with prominent early investors, and hands-on execution.
                 </p>
               </div>
@@ -303,8 +304,8 @@
                 <span class="advantage-marker" aria-hidden="true"></span>
                 <div class="pillar-content">
                   <h3 class="advantage-title">Academic Lab Pipeline</h3>
-                  <p class="advantage-body"><span class="">MIT, Stanford, CMU, Caltech, Berkeley, Sandia,
-                      NREL</span> before research becomes a company. First-call advantage at formation.</p>
+                  <p class="advantage-body"><span class="">MIT, Stanford, CMU, Caltech, Berkeley</span> before research
+                    becomes a company. First-call advantage at formation.</p>
                 </div>
               </div>
               <div class="pillar-item">
@@ -434,7 +435,8 @@
             </div>
 
             <p class="contact-email-note">
-              Send email? <a href="mailto:contact@alturapartners.ai" class="contact-email-link">contact@alturapartners.ai
+              Send email? <a href="mailto:contact@alturapartners.ai"
+                class="contact-email-link">contact@alturapartners.ai
               </a>
             </p>
           </form>
@@ -486,11 +488,11 @@
             <p class="footer-col-heading">Contact</p>
             <ul class="footer-contact-list">
               <li class="footer-contact-item">
-                <a href="#contact" class="footer-contact-title">LP Inquiries</a>
+                <a href="#contact" class="footer-contact-title" data-inquiry-type="Partners With Us">LP Inquiries</a>
                 <p class="footer-contact-desc">Contact us for fund investment opportunities and co-invest rights.</p>
               </li>
               <li class="footer-contact-item">
-                <a href="#contact" class="footer-contact-title">Founder Inquiries</a>
+                <a href="#contact" class="footer-contact-title" data-inquiry-type="Founder Inquiry">Founder Inquiries</a>
                 <p class="footer-contact-desc">Submit materials for consideration at the seed and Series A stage.</p>
               </li>
               <li class="footer-contact-item">
