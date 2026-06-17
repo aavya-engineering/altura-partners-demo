@@ -53,7 +53,6 @@
   ───────────────────────────────────────── */
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
-  const mobileLinks = mobileMenu.querySelectorAll('a');
 
   function openMenu() {
     mobileMenu.classList.add('open');
@@ -80,10 +79,6 @@
   menuToggle.addEventListener('click', (e) => {
     e.stopPropagation();
     toggleMenu();
-  });
-
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
   });
 
   document.addEventListener('keydown', (e) => {
@@ -188,6 +183,8 @@
     const inquiryTypeInput = contactForm.querySelector('[name="inquiry_type"]');
     const submitBtn = contactForm.querySelector('.btn-contact-primary');
     const defaultSubmitLabel = submitBtn.textContent.trim();
+    const defaultFounderLabel = founderBtn.textContent.trim();
+    let activeSubmitBtn = submitBtn;
     const modal = document.getElementById('contact-modal');
     const modalIcon = document.getElementById('contact-modal-icon');
     const modalTitle = document.getElementById('contact-modal-title');
@@ -261,18 +258,33 @@
       if (e.key === 'Escape') closeModal();
     });
 
+    function setInquiryType(type) {
+      inquiryTypeInput.value = type;
+    }
+
     function setLoading(loading) {
       submitBtn.disabled = loading;
       founderBtn.disabled = loading;
-      submitBtn.textContent = loading ? 'Sending…' : defaultSubmitLabel;
+      submitBtn.textContent =
+        loading && activeSubmitBtn === submitBtn ? 'Sending…' : defaultSubmitLabel;
+      founderBtn.textContent =
+        loading && activeSubmitBtn === founderBtn ? 'Sending…' : defaultFounderLabel;
     }
 
+    document.querySelectorAll('[data-inquiry-type]').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        setInquiryType(trigger.dataset.inquiryType);
+      });
+    });
+
     submitBtn.addEventListener('click', () => {
-      inquiryTypeInput.value = 'Partners With Us';
+      activeSubmitBtn = submitBtn;
+      setInquiryType('Partners With Us');
     });
 
     founderBtn.addEventListener('click', () => {
-      inquiryTypeInput.value = 'Founder Inquiry';
+      activeSubmitBtn = founderBtn;
+      setInquiryType('Founder Inquiry');
       contactForm.requestSubmit();
     });
 
@@ -294,7 +306,8 @@
       try {
         await emailjs.sendForm(config.serviceId, config.templateId, contactForm);
         contactForm.reset();
-        inquiryTypeInput.value = 'Partners With Us';
+        activeSubmitBtn = submitBtn;
+        setInquiryType('Partners With Us');
         showModal('success');
       } catch (error) {
         console.error('EmailJS error:', error);

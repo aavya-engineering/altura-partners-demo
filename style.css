@@ -2634,6 +2634,18 @@ body.menu-open {
   color: #ffffff;
 }
 
+.mobile-nav-link--disabled,
+.mobile-menu .mobile-nav-link--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.mobile-menu .mobile-nav-link--disabled:hover {
+  color: #ffffff;
+  opacity: 0.45;
+}
+
 .menu-toggle {
   display: none;
   position: relative;
@@ -2724,6 +2736,12 @@ html:not(.dark) .mobile-menu .mobile-nav-link {
 
 html:not(.dark) .mobile-menu .mobile-nav-link:hover {
   color: #032452;
+}
+
+html:not(.dark) .mobile-menu .mobile-nav-link--disabled,
+html:not(.dark) .mobile-menu .mobile-nav-link--disabled:hover {
+  color: #032452;
+  opacity: 0.45;
 }
 
 /* The menu pairs with the hamburger, which is visible up to 1099px */
